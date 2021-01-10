@@ -1,6 +1,6 @@
 const fs=require("fs");
 const client = require('./conectingDatabase');
-const script=require("./functions.js");
+const script=require("./src/functions.js");
 exports.readData = function(request, response) {
     response.writeHead(200, { 'Content-Type': 'text/html'});
     fs.readFile('./index.html', null, function (error, data) {
@@ -16,10 +16,12 @@ exports.readData = function(request, response) {
 }
 
 exports.changeData=function(request,response){
-    var sql1="SELECT ime FROM korisnik";
+    var sql1="SELECT ime,prezime,email,username FROM korisnik";
     client.query(sql1, function (err, result) {
              if (err) throw err;
-             response.json(result.rows);
+             var rows=result.rows;
+                var row = rows[0];
+             response.json({"ime":row.ime,"prezime":row.prezime,"email":row.email,"username":row.username});
     });
 
 

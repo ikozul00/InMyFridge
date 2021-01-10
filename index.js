@@ -26,6 +26,8 @@
 var express=require('express');
 var app = express();
 var routes=require('./routes');
+var serveStatic = require('serve-static');
+var path = require('path');
 
 
 var server = app.listen(8080, function () {
@@ -35,5 +37,7 @@ var server = app.listen(8080, function () {
     console.log("Example app listening at http://%s:%s", host, port);
  });
 
+
+ app.use(express.static(path.join(__dirname, 'src')))
  app.use('/', routes);
 
