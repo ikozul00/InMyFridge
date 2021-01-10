@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="styles/styleMyProfile.css" />
+</head>
+
+<!-- Kad se dogovorimo kako ce izgledat vrh stranice, onda cemo spustit heading My profile negdi ispod -->
+<!-- Dodat naslov da bude clickable da vrati na početnu -->
+
+<body>
+    <header>
+        <div id="logo">
+            <!-- Treba dodat logo -->
+            Logo
+        </div>
+        <div>
+            My Profile
+        </div>
+        <div id="Title">
+            InMyFridge
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="#aboutMe">About Me</a>
+            </li>
+            <li>
+                <a href="#myRecipes">My Recipes</a>
+            </li>
+            <li>
+                <a href="#favourites">Favourites</a>
+            </li>
+            <li>
+                <a href="#">New Recipe</a>
+                <!-- Nismo napravile da vodi na novu stranicu za unos recepta -->
+                <!-- Ovo bi napravile otom potom, ako do ovog dijela dodemo -->
+            </li>
+            <li>
+                <a href="#">Log Out</a>
+            </li>
+
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="aboutMe">
+            <h2>About Me</h2>
+            <label for="username"><b>Username</b></label>
+            <div class="name">
+                Iva123
+            </div>
+            <label for="email"><b>Email</b></label>
+            <div class="name">
+                iva.ivic@gmail.com
+            </div>
+            <label for="name"><b>Name</b></label>
+            <div class="name">
+                Iva
+            </div>
+            <label for="surname"><b>Surname</b></label>
+            <div class="name">
+                Ivic
+            </div>
+        </div>
+
+        <!-- Ovo smo napravile samo da izgleda otprilike kako bi tribalo -->
+        <!-- Ne znamo na koji način se povezuje s bazom pa ni kako bi tribalo to napravit -->
+        <!-- Odnose se komentari i na Favourites -->
+
+        <div id="myRecipes">
+            <h2>My Recipes</h2>
+            <ul>
+                <li>
+                    <a>Muffin s cokoladom</a>
+                    <div class="buttons">
+                        <button class="btnModify">Modify</button>
+                        <button class="btnDelete">Delete</button>
+                    </div>
+
+                </li>
+                <li>
+                    <a>Banana</a>
+                    <div class="buttons">
+                        <button class="btnModify">Modify</button>
+                        <button class="btnDelete">Delete</button>
+                    </div>
+                </li>
+                <li>
+                    <a>Jabuka</a>
+                    <div class="buttons">
+                        <button class="btnModify">Modify</button>
+                        <button class="btnDelete">Delete</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="favourites">
+            <!-- fali ikona srca -->
+            <h2>Favourites</h2>
+            <ul>
+                <li>
+                    <a>Muffin s cokoladom</a>
+                </li>
+                <li>
+                    <a>Banana</a>
+                </li>
+                <li>
+                    <a>Jabuka</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

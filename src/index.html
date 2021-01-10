@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InMyFridge</title>
+    <link rel="stylesheet" href="styles/mystyle.css">
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <!-- Treba dodat logo -->
+            Logo
+        </div>
+        <div id="Title">
+            InMyFridge
+        </div>
+        <div class="Sign">
+            <!-- Ako zelite kao u spec rijesit klikanje s js-om slobodno prominite -->
+            <div class="SignIn">
+                <a href="signIn.html">Sign In</a>
+            </div>
+            <div class="SignUp">
+                <a href="signUp.html">Sign Up</a>
+            </div>
+            <div class="My Profile">
+                <a href="myProfile.html">My Profile</a>
+            </div>
+        </div>
+    </header>
+    <div class="SearchBar">
+        <!-- Ovaj dio smo od tu rijesile (link ispod) -->
+        <!-- https://www.w3schools.com/howto/howto_js_filter_dropdown.asp -->
+        <div class="dropdown">
+            <button class="dropbtn">Izaberi pretraživanje</button>
+            <div class="dropdown-content">
+                <a href="#">Po receptu</a>
+                <a href="#">Po autoru</a>
+                <a href="#">Po sastojcima</a>
+            </div>
+        </div>
+        <form autocomplete="off">
+            <!-- Ovaj dio smo od tu gledale (link ispod) -->
+            <!-- https://www.w3schools.com/howto/howto_js_autocomplete.asp -->
+            <div class="autocomplete" style="width:300px;">
+                <input id="myInput" type="text" name="search" placeholder="Type here">
+            </div>
+            <input type="submit">
+        </form>
+    </div>
+
+    <div class="Filter">
+        <!-- Ovaj dio smo od tu gledale (link ispod) -->
+        <!-- https://www.w3schools.com/howto/howto_js_filter_elements.asp -->
+        <h2>Filter</h2>
+
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')">Prikaži sve</button>
+            <button class="btn" onclick="filterSelection('meal')">Vrste jela</button>
+            <button class="btn" onclick="filterSelection('dessert')">Vrste deserta</button>
+            <button class="btn" onclick="filterSelection('occasion')">Prigoda</button>
+            <button class="btn" onclick="filterSelection('preparation')">Način pripreme</button>
+            <button class="btn" onclick="filterSelection('diets')">Vrste prehrane</button>
+            <button class="btn" onclick="filterSelection('season')">Sezona</button>
+
+            <button class="btn-start-search">Start search</button>
+        </div>
+
+        <div class="container">
+            <div class="filterDiv meal">Doručak</div>
+            <div class="filterDiv meal">Ručak</div>
+            <div class="filterDiv meal">Večera</div>
+            <div class="filterDiv meal">Toplo predjelo</div>
+            <div class="filterDiv meal">Hladno predjelo</div>
+            <div class="filterDiv meal">Glavno jelo</div>
+            <div class="filterDiv meal">Desert</div>
+            <div class="filterDiv meal">Juha</div>
+            <div class="filterDiv meal">Salata</div>
+            <div class="filterDiv meal">Piće</div>
+            <div class="filterDiv dessert">Kolač</div>
+            <div class="filterDiv dessert">Torta</div>
+            <div class="filterDiv dessert">Peciva</div>
+            <div class="filterDiv dessert">Savijača</div>
+            <div class="filterDiv dessert">Cheesecake</div>
+            <div class="filterDiv dessert">Muffini</div>
+            <div class="filterDiv dessert">Krafne</div>
+            <div class="filterDiv occasion">Rođendan</div>
+            <div class="filterDiv occasion">Uskrs</div>
+            <div class="filterDiv occasion">Badnjak</div>
+            <div class="filterDiv occasion">Božić</div>
+            <div class="filterDiv occasion">Poklade</div>
+            <div class="filterDiv occasion">Roštilj</div>
+            <div class="filterDiv occasion">Party</div>
+            <div class="filterDiv preparation">Bez termičke obrade</div>
+            <div class="filterDiv preparation">Kuhanje</div>
+            <div class="filterDiv preparation">Pečenje</div>
+            <div class="filterDiv preparation">Prženje</div>
+            <div class="filterDiv diets">Bezglutenska</div>
+            <div class="filterDiv diets">Vegeterijanska</div>
+            <div class="filterDiv diets">Veganska</div>
+            <div class="filterDiv diets">Niskokalorična</div>
+            <div class="filterDiv diets">Malo kolesterola</div>
+            <div class="filterDiv season">Proljeće</div>
+            <div class="filterDiv season">Ljeto</div>
+            <div class="filterDiv season">Jesen</div>
+            <div class="filterDiv season">Zima</div>
+        </div>
+    </div>
+    <!-- Ako ovo dolje odkomentirate vidit cete kako filter radi -->
+
+
+    <!-- <script>
+        filterSelection("all")
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script> -->
+
+</body>
+
+</html>
