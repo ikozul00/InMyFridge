@@ -1,9 +1,11 @@
 const fs=require("fs");
-const client = require('./conectingDatabase');
-const script=require("./src/functions.js");
+const client = require('../conectingDatabase');
+const script=require("../src/scripts/functions.js");
+
+//load first page
 exports.readData = function(request, response) {
     response.writeHead(200, { 'Content-Type': 'text/html'});
-    fs.readFile('./src/testiranje.html', null, function (error, data) {
+    fs.readFile('./src/index.html', null, function (error, data) {
         if (error) {
             response.writeHead(404);
              respone.write('Whoops! File not found!');
@@ -15,6 +17,7 @@ exports.readData = function(request, response) {
     });
 }
 
+//read information from database
 exports.changeData=function(request,response){
     var sql1="SELECT ime,prezime,email,username FROM korisnik";
     client.query(sql1, function (err, result) {
@@ -22,8 +25,6 @@ exports.changeData=function(request,response){
              var rows=result.rows;
                 var row = rows[0];
              response.json({"ime":row.ime,"prezime":row.prezime,"email":row.email,"username":row.username});
-    });
-
-
-    
+    });  
 }
+

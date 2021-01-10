@@ -28,7 +28,11 @@ var app = express();
 var routes=require('./routes');
 var serveStatic = require('serve-static');
 var path = require('path');
+var login=require("./src/scripts/logIn")
 
+app.use(express.urlencoded({
+    extended: true
+  }))
 
 var server = app.listen(8080, function () {
     var host = "localhost";
@@ -38,6 +42,31 @@ var server = app.listen(8080, function () {
  });
 
 
- app.use(express.static(path.join(__dirname, 'src')))
+ app.use(express.static(path.join(__dirname, 'src/')));
+ app.use(express.static(path.join(__dirname, 'src/scripts')));
+ app.use((req, res, next) => {
+  res.status(404).send("Sorry can't find that!");
+});
  app.use('/', routes);
+
+ app.post("/logIn", (req, res) => {
+     if(validateForm()){
+        const username = req.body.username;
+        const password=req.body.password;
+        var text=login.signInFunction(username,password);
+        res.send(req.body);
+        res.end();
+     }
+  });
+
+  function validateForm() {
+    var x = document.forms["logIn"]["username"].value;
+    var y= document.forms["logIn"]["password"].value;
+    if (x == "" || y== "") {
+      alert("Username and password must be filled out");
+      return false;
+    }
+    else
+        return true;
+  }
 

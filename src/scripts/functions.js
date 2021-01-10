@@ -1,4 +1,5 @@
 if (typeof (document) !== "undefined"){
+    //load data form database (just testing)
     let clickableButton=document.querySelector("#a");
     clickableButton.addEventListener("click",loadDoc);
 
