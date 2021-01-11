@@ -1,5 +1,6 @@
 const fs=require("fs");
 const client = require('../conectingDatabase');
+const funkcije=require("../src/scripts/signIn");
 
 
 //log in user
@@ -32,16 +33,29 @@ exports.loginUser=function(request,response){
 		client.query(`SELECT username FROM korisnik WHERE username = '${username}' AND lozinka = '${password}' `,  function(err, result) {
 			if (err) throw err;
 			if (typeof (result.rows[0]) !== "undefined") {
-				response.status(200).json({message:"Authentication successful"});
-			} 
+				response.redirect("/");
+			}
 			else {
-                response.status(404).json({message:"Authentication failed"});
+				response.status(404).json({message:'Incorrect Username and/or Password!'})
 			}			
 			response.end();
 		});
 	}
 	else{
-		response.status(404).json({message:"Authentication failed"});
+		response.status(404).json({message:'Please enter Username and Password!'});
 		response.end();
 	}
 };
+
+// exports.wrongData = function(request, response) {
+// 	response.writeHead(200, { 'Content-Type': 'text/html'});
+// 	fs.readFile('./src/signIn2.html', null, function (error, data) {
+// 		if (error) {
+// 			 response.write('Whoops! File not found!');
+// 		} 
+// 		else {
+// 			response.write(data);
+// 		}
+// 		response.end();
+// 	});
+// }
