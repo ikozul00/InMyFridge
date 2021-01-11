@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/styleSignIn.css">
+</head>
+
+<body>
+
+    <h2>InMyFridge</h2>
+
+    <!-- Ovo smo napravile kao kako bi tribala bit stranica, ali triba je uredit da bi imala smisla -->
+    <!-- Možda bi tribalo dodat logo, tj da svaka stranica na vrhu izgleda isto, da bude dosljedno -->
+    <!-- Mozda triba dodat naslov da bude clickable da vrati na početnu -->
+
+    <div class="container">
+        <!-- <form action="/action_page.php"> -->
+        <form name="login" action="/login" method="POST"> 
+            <div class="row">
+                <h2 style="text-align:center">Login</h2>
+                <div class="col">
+                    <input type="text" name="username" placeholder="Username" id="username">
+                    <input type="password" name="password" placeholder="Password" id="password">
+                    <input type="submit" value="Login" id="logInButton">
+                    <!-- triba dodat da ide na pocetnu stranicu -->
+                </div>
+            </div>
+         </form> 
+        <p id="errorMessage"></p>
+    </div>
+    <script>
+         login=function login(){ 
+          console.log("signIn.js");
+          var xhttp = new XMLHttpRequest();  
+          var username=document.forms["login"]["username"].value;
+          var password=document.forms["login"]["password"].value;
+          console.log(username);
+          console.log(password);
+          if (username == ""||password=="") {
+               let paragraf=document.querySelector("#errorMessagee");
+               paragraf.innerHTML='Please enter Username and Password!';
+          }
+          else{
+               var text="username="+username+"&password="+password;
+               xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        alert("Succsesful login");
+                    }
+                    else if(this.readyState == 4 && this.status == 404){
+                         let paragraf=document.querySelector("#errorMessagee");
+                         paragraf.innerHTML='Incorrect Username and/or Password!';
+                    }
+               };
+                xhttp.open("POST", "/login", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(text);
+          }
+          return false;
+     }
+    </script>
+
+    <div class="bottom-container">
+        <div class="row">
+            <div class="col">
+                <a href="signUp.html" style="color:white" class="btn">Sign up</a>
+            </div>
+        </div>
+    </div>
+<!-- <script src="scripts/signIn.js"></script> -->
+</body>
+</html>
