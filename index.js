@@ -28,7 +28,9 @@ var app = express();
 var routes=require('./routes');
 var serveStatic = require('serve-static');
 var path = require('path');
-var login=require("./src/scripts/logIn")
+var session = require('express-session');
+var bodyParser = require('body-parser');
+const client = require('./conectingDatabase');
 
 app.use(express.urlencoded({
     extended: true
@@ -40,33 +42,34 @@ var server = app.listen(8080, function () {
     
     console.log("Example app listening at http://%s:%s", host, port);
  });
-
+ app.set('views', 'src');
+ app.set('view engine', 'ejs');
 
  app.use(express.static(path.join(__dirname, 'src/')));
- app.use(express.static(path.join(__dirname, 'src/scripts')));
+ app.use('/', routes);
  app.use((req, res, next) => {
   res.status(404).send("Sorry can't find that!");
 });
- app.use('/', routes);
 
- app.post("/logIn", (req, res) => {
-     if(validateForm()){
-        const username = req.body.username;
-        const password=req.body.password;
-        var text=login.signInFunction(username,password);
-        res.send(req.body);
-        res.end();
-     }
-  });
+ app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
 
-  function validateForm() {
-    var x = document.forms["logIn"]["username"].value;
-    var y= document.forms["logIn"]["password"].value;
-    if (x == "" || y== "") {
-      alert("Username and password must be filled out");
-      return false;
-    }
-    else
-        return true;
-  }
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
+
+
+
+  // function validateForm() {
+  //   var x = document.forms["logIn"]["username"].value;
+  //   var y= document.forms["logIn"]["password"].value;
+  //   if (x == "" || y== "") {
+  //     alert("Username and password must be filled out");
+  //     return false;
+  //   }
+  //   else
+  //       return true;
+  // }
 
