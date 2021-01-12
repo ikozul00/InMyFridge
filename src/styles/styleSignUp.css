@@ -7,10 +7,34 @@ body {
   box-sizing: border-box;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2{
+  text-align: center;
+  font-size: 30px;
+}
+
+h1{
+  text-align: center;
+}
+
+p{
+  text-align: center;
+}
+
 /* Add padding to containers */
 .container {
   padding: 16px;
-  background-color: white;
+  border-radius: 10px;
+  background-color:rgb(232,232,232);
+  padding: 10px 20px 30px 20px;
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
 }
 
 /* Full-width input fields */
@@ -21,11 +45,14 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: none;
   background: #f1f1f1;
+  text-align: center;
+  border-radius: 10px;
 }
 
 input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
+  
 }
 
 /* Overwrite default styles of hr */
@@ -44,6 +71,7 @@ hr {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  border-radius: 10px;
 }
 
 .registerbtn:hover {
@@ -60,3 +88,4 @@ a {
   background-color: #f1f1f1;
   text-align: center;
 }
+

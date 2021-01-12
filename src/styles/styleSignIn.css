@@ -9,9 +9,12 @@ box-sizing: border-box;
 /* style the container */
 .container {
   position: relative;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #f2f2f2;
   padding: 20px 0 30px 0;
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 header {
@@ -21,6 +24,8 @@ header {
 
 h2{
   text-align: center;
+  font-size: 30px;
+
 }
 
 /* style inputs and link buttons */
@@ -68,6 +73,8 @@ input[type=submit]:hover {
   text-align: center;
   background-color: #666;
   border-radius: 0px 0px 4px 4px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .btn {
