@@ -10,45 +10,49 @@
 
 <body>
     <header>
-        <div id="logo">
-            <!-- Treba dodat logo -->
-            Logo
-        </div>
-        <div id="Title">
-            InMyFridge
-        </div>
-        <div class="Sign">
-            <!-- Ako zelite kao u spec rijesit klikanje s js-om slobodno prominite -->
-            <div class="SignIn">
-                <a href="signIn.html">Sign In</a>
-            </div>
-            <div class="SignUp">
-                <a href="signUp.html">Sign Up</a>
-            </div>
-            <div class="My Profile">
-                <a href="myProfile.html">My Profile</a>
-            </div>
-        </div>
+        <a href="#" class="sign-in">Sign In</a>
+        <a href="#" class="sign-up">Sign Up</a>
     </header>
-    <div class="SearchBar">
-        <!-- Ovaj dio smo od tu rijesile (link ispod) -->
-        <!-- https://www.w3schools.com/howto/howto_js_filter_dropdown.asp -->
-        <div class="dropdown">
-            <button class="dropbtn">Izaberi pretraživanje</button>
-            <div class="dropdown-content">
-                <a href="#">Po receptu</a>
-                <a href="#">Po autoru</a>
-                <a href="#">Po sastojcima</a>
+
+
+    <div class="container">
+        <div class="to-right">
+            <div class="img">
+                <div></div>
+                    <img src="images/logo.png" alt="logo" height="100px">
+                <div></div>
             </div>
+                <div class="SearchBar">
+                    <div class="dropdown">
+                        <button class="dropbtn">Izaberi pretraživanje</button>
+                        <div class="dropdown-content">
+                            <a href="#">Po receptu</a>
+                            <a href="#">Po autoru</a>
+                            <a href="#">Po sastojcima</a>
+                        </div>
+                    </div>
+                    <form autocomplete="off">
+                        <!-- Ovaj dio smo od tu gledale (link ispod) -->
+                        <!-- https://www.w3schools.com/howto/howto_js_autocomplete.asp -->
+                        <div class="autocomplete" style="width:300px;">
+                            <input id="myInput" type="text" name="search" placeholder="Type here">
+                        </div>
+                        <input type="submit">
+                    </form>
+                </div>
         </div>
-        <form autocomplete="off">
-            <!-- Ovaj dio smo od tu gledale (link ispod) -->
-            <!-- https://www.w3schools.com/howto/howto_js_autocomplete.asp -->
-            <div class="autocomplete" style="width:300px;">
-                <input id="myInput" type="text" name="search" placeholder="Type here">
-            </div>
-            <input type="submit">
-        </form>
+    </div>
+
+    <div id="time-container">
+        <h2>Vrijeme pripreme<h2>
+        <button class="btn" onclick="filterSelection('15 min')"> 15 min</button>
+        <button class="btn" onclick="filterSelection('30 min')"> 30 min</button>
+        <button class="btn" onclick="filterSelection('45 min')"> 45 min</button>
+        <button class="btn" onclick="filterSelection('1 h')"> 1 h</button>
+        <button class="btn" onclick="filterSelection('1 h')"> 1 h i 30 min</button>
+        <button class="btn" onclick="filterSelection('1 h')"> 2 h</button>
+        <button class="btn" onclick="filterSelection('1 h')"> 3 h</button>
+        <button class="btn" onclick="filterSelection('Duže od 3 h')"> Duže od 3 h</button>
     </div>
 
     <div class="Filter">
