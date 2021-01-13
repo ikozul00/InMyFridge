@@ -5,17 +5,18 @@ const app=require("../index");
 
 //load first page
  exports.readData = function(request, response) {
-     response.writeHead(200, { 'Content-Type': 'text/html'});
-     fs.readFile('./src/index.html', null, function (error, data) {
-         if (error) {
-             response.writeHead(404);
-              respone.write('Whoops! File not found!');
-         } 
-         else {
-             response.write(data);
-         }
-         response.end();
-     });
+    //  response.writeHead(200, { 'Content-Type': 'text/html'});
+    //  fs.readFile('./src/index.html', null, function (error, data) {
+    //      if (error) {
+    //          response.writeHead(404);
+    //           respone.write('Whoops! File not found!');
+    //      } 
+    //      else {
+    //          response.write(data);
+    //      }
+    //      response.end();
+    //  });
+    response.sendFile(__dirname+'/src/index.html');
  }
 
 //load first page

@@ -1,4 +1,5 @@
 const fs=require("fs");
+const path=require("path");
 const client = require('../conectingDatabase');
 const funkcije=require("../src/scripts/signIn");
 
@@ -36,7 +37,7 @@ exports.loginUser=function(request,response){
 				response.redirect("/");
 			}
 			else {
-				response.status(404).json({message:'Incorrect Username and/or Password!'})
+				response.redirect("/failedLogin");
 			}			
 			response.end();
 		});
@@ -47,15 +48,20 @@ exports.loginUser=function(request,response){
 	}
 };
 
-// exports.wrongData = function(request, response) {
-// 	response.writeHead(200, { 'Content-Type': 'text/html'});
-// 	fs.readFile('./src/signIn2.html', null, function (error, data) {
-// 		if (error) {
-// 			 response.write('Whoops! File not found!');
-// 		} 
-// 		else {
-// 			response.write(data);
-// 		}
-// 		response.end();
-// 	});
-// }
+//  exports.wrongData = function(request, response) {
+//  	response.writeHead(200, { 'Content-Type': 'text/html'});
+//  	fs.readFile('./src/index.html', null, function (error, data) {
+//  		if (error) {
+//  			 response.write('Whoops! File not found!');
+//  		} 
+//  		else {
+//  			response.write(data);
+//  		}
+//  		response.end();
+//  	});
+//  }
+
+ exports.wrongData=function(request,response){
+	 console.log("pozvala");
+	response.sendFile("./src/signIn.html");
+ }
