@@ -28,7 +28,11 @@ var app = express();
 var routes=require('./routes');
 var serveStatic = require('serve-static');
 var path = require('path');
+var bodyParser = require('body-parser');
 
+app.use(express.urlencoded({
+    extended: true
+  }))
 
 var server = app.listen(8080, function () {
     var host = "localhost";
@@ -40,4 +44,9 @@ var server = app.listen(8080, function () {
 
  app.use(express.static(path.join(__dirname, 'src')))
  app.use('/', routes);
+ app.use((req, res, next) => {
+    res.status(404).send("Sorry can't find that!");
+  });
 
+  app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
