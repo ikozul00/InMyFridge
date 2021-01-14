@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #DFDBE5;
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.172L6.172 0h5.656L0 11.828V6.172zm40 5.656L28.172 0h5.656L40 6.172v5.656zM6.172 12l12-12h3.656l12 12h-5.656L20 3.828 11.828 12H6.172zm12 0L20 10.172 21.828 12h-3.656z' fill='%23e9cf19' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
 
@@ -21,14 +21,14 @@ font-size: 30px;
 
 nav ul {
   list-style-type: none;
-  margin: 0;
+  margin: 0 100px;
   padding: 0;
   overflow: hidden;
   background-color: rgb(209, 68, 68);
 }
 
 nav li {
-  float: left;
+  float:left;
 }
 
 nav li a {
@@ -41,39 +41,31 @@ nav li a {
 
 /* Change the link color to #111 (black) on hover */
 nav  li a:hover {
-  background-color: #111;
+  background-color: rgb(206, 88, 88);
 }
 
 .container{
-  background-color: rgb(217, 216, 218);
   padding: 10px;
-  margin: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .container h2 {
-text-align:left;
+  text-align: left;
 }
 
-
 #aboutMe{
-  width: 100%;
-  background-color: rgb(253, 255, 138);
-  height: 500px;
+  background-color: rgba(255, 255, 255, 0.884);
   display: flex;
   flex-direction: column;
   padding: 20px;
 }
 
-#aboutMe h2{
-  padding: 5px;
-}
-
-
 .name{
-  width: 20%;
+  width: 50%;
   padding: 15px;
   margin: 5px 0 22px 0;
-  display: inline-block;
+  display:flex;
   border: none;
   background: #f1f1f1;
   border-radius: 10px;
@@ -81,8 +73,7 @@ text-align:left;
 
 #myRecipes{
   width: 100%;
-  background-color: rgb(255, 247, 177);
-  height: 500px;
+  background-color: rgba(255, 255, 255, 0.884);
   padding: 20px;
 }
 
@@ -90,6 +81,70 @@ text-align:left;
   list-style: none;
 }
 #myRecipes ul li{
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
 }
+
+#myRecipes ul li a {
+  font-size: 25px;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.btnModify {
+  background-color: lightgray;
+  border: none;
+  position: center;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnDelete {
+  background-color: lightgray;
+  border: none;
+  position: center;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-left: 10px;
+}
+
+
+#favourites {
+  background-color: rgba(255, 255, 255, 0.884);
+  padding: 20px;
+}
+
+#favourites ul{
+  list-style: none;
+}
+#favourites ul li{
+  display: inline-flex;
+}
+
+#favourites ul li a {
+  font-size: 25px;
+  margin: 5px;
+  text-decoration: none;
+}
+
+p {
+  margin: 5px;
+}
+
+.clickable-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.clickable-icon:hover {
+  transform: scale(1.2);
+}
+

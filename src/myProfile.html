@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
     <link rel="stylesheet" href="styles/styleMyProfile.css" />
+    <link rel="stylesheet" href="styles/font-awesome.min.css"/>
 </head>
 
 <!-- Kad se dogovorimo kako ce izgledat vrh stranice, onda cemo spustit heading My profile negdi ispod -->
@@ -72,22 +73,24 @@
             <h2>My Recipes</h2>
             <ul>
                 <li>
-                    <a>Muffin s cokoladom</a>
+                    <a href="#">Muffin s čokoladom</a>
                     <div class="buttons">
                         <button class="btnModify">Modify</button>
                         <button class="btnDelete">Delete</button>
                     </div>
 
                 </li>
+                <hr>
                 <li>
-                    <a>Banana</a>
+                    <a href="#">Banana</a>
                     <div class="buttons">
                         <button class="btnModify">Modify</button>
                         <button class="btnDelete">Delete</button>
                     </div>
                 </li>
+                <hr>
                 <li>
-                    <a>Jabuka</a>
+                    <a href="#">Jabuka</a>
                     <div class="buttons">
                         <button class="btnModify">Modify</button>
                         <button class="btnDelete">Delete</button>
@@ -95,22 +98,47 @@
                 </li>
             </ul>
         </div>
+
         <div id="favourites">
-            <!-- fali ikona srca -->
             <h2>Favourites</h2>
             <ul>
                 <li>
-                    <a>Muffin s cokoladom</a>
+                    <p><a href="#">Čokoladna torta</a><i class="fa fa-heart-o heart-icon clickable-icon"></i></p>
                 </li>
+                <hr>
                 <li>
-                    <a>Banana</a>
+                    <p><a href="#">Banana</a><i class="fa fa-heart-o heart-icon clickable-icon"></i></p>
                 </li>
+                <hr>
                 <li>
-                    <a>Jabuka</a>
+                    <p><a href="#">Jabuka</a><i class="fa fa-heart-o heart-icon clickable-icon"></i></p>
                 </li>
             </ul>
         </div>
     </div>
+
+    <!-- kako radi heart ikona 
+    <script>
+        let heartIcon = document.querySelectorAll("#favourites .heart-icon");
+        for(let icon of heartIcon) {
+            icon.addEventListener("click", handleHeartIconClick);
+        }
+
+        function handleHeartIconClick(e){
+            let heartIcon = e.currentTarget;
+            if(heartIcon.classList.contains("fa-heart-o")){
+                heartIcon.classList.remove("fa-heart-o");
+                heartIcon.classList.add("fa-heart");
+            }
+            else {
+                heartIcon.classList.remove("fa-heart");
+                heartIcon.classList.add("fa-heart-o");
+            }
+        }
+    </script>
+
+    kako radi heart ikona -->
+
 </body>
 
 </html>

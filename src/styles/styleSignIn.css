@@ -2,6 +2,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #DFDBE5;
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.172L6.172 0h5.656L0 11.828V6.172zm40 5.656L28.172 0h5.656L40 6.172v5.656zM6.172 12l12-12h3.656l12 12h-5.656L20 3.828 11.828 12H6.172zm12 0L20 10.172 21.828 12h-3.656z' fill='%23e9cf19' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+
+  
 }
 
 * {
@@ -13,11 +15,10 @@ box-sizing: border-box;
   position: relative;
   border-radius: 10px;
   background-color: #f2f2f2;
-  padding: 20px 0 30px 0;
   margin-top: 30px;
-  margin-left: 50px;
-  margin-right: 50px;
-  text-align: center;
+  margin-left: 400px;
+  margin-right: 400px;
+  padding: 10px;
 }
 
 header {
@@ -28,7 +29,6 @@ header {
 h2{
   text-align: center;
   font-size: 30px;
-
 }
 
 /* style inputs and link buttons */
@@ -74,10 +74,10 @@ input[type=submit]:hover {
 /* bottom container */
 .bottom-container {
   text-align: center;
-  background-color: rgb(230, 224, 224);
   border-radius: 0px 0px 4px 4px;
   margin-left: 50px;
   margin-right: 50px;
+  display: inline;
 }
 
 .btn {

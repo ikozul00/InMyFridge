@@ -1,63 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InMyFridge</title>
     <link rel="stylesheet" href="styles/mystyle.css">
-</head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+</head>
 <body>
     <header>
-        <a href="signIn.html" class="sign-in">Sign In</a>
-        <a href="#" class="sign-up">Sign Up</a>
+        <div class="to-right">
+            <a href="#" class="sign-in">Sign In</a>
+            <a href="#" class="sign-up">Sign Up</a>
+        </div>
     </header>
 
-
     <div class="container">
-        <div class="to-right">
-            <div class="img">
-                <div></div>
-                    <img src="images/logo.png" alt="logo" height="100px">
-                <div></div>
-            </div>
-                <div class="SearchBar">
-                    <div class="dropdown">
-                        <button class="dropbtn">Izaberi pretraživanje</button>
-                        <div class="dropdown-content">
-                            <a href="#">Po receptu</a>
-                            <a href="#">Po autoru</a>
-                            <a href="#">Po sastojcima</a>
-                        </div>
-                    </div>
-                    <form autocomplete="off">
-                        <!-- Ovaj dio smo od tu gledale (link ispod) -->
-                        <!-- https://www.w3schools.com/howto/howto_js_autocomplete.asp -->
-                        <div class="autocomplete" style="width:300px;">
-                            <input id="myInput" type="text" name="search" placeholder="Type here">
-                        </div>
-                        <input type="submit">
-                    </form>
+        <img src="images\logo.png" alt="logo">
+        <div class="search">
+            <div class="dropdown">
+                <button class="dropbtn">Izaberi pretraživanje</button>
+                <div class="dropdown-content">
+                    <a href="#">Po receptu</a>
+                    <a href="#">Po autoru</a>
+                    <a href="#">Po sastojcima</a>
                 </div>
+            </div>
+
+            <form autocomplete="off">
+                <div class="autocomplete" style="width:300px;">
+                    <input id="myInput" type="text" name="search" placeholder="Type here">
+                    <input id="submit" type="submit" value="Search">
+                    
+                </div>
+            </form>
         </div>
     </div>
 
-    <div id="time-container">
-        <h2>Vrijeme pripreme<h2>
-        <button class="btn" onclick="filterSelection('15 min')"> 15 min</button>
-        <button class="btn" onclick="filterSelection('30 min')"> 30 min</button>
-        <button class="btn" onclick="filterSelection('45 min')"> 45 min</button>
-        <button class="btn" onclick="filterSelection('1 h')"> 1 h</button>
-        <button class="btn" onclick="filterSelection('1 h')"> 1 h i 30 min</button>
-        <button class="btn" onclick="filterSelection('1 h')"> 2 h</button>
-        <button class="btn" onclick="filterSelection('1 h')"> 3 h</button>
-        <button class="btn" onclick="filterSelection('Duže od 3 h')"> Duže od 3 h</button>
-    </div>
+    <div class="second-container">
+        <h2>Vrijeme pripreme</h2>
 
-    <div class="Filter">
-        <!-- Ovaj dio smo od tu gledale (link ispod) -->
-        <!-- https://www.w3schools.com/howto/howto_js_filter_elements.asp -->
+        <button class="btnTime" onclick="filterSelection('15 min')"> 15 min</button>
+        <button class="btnTime" onclick="filterSelection('30 min')"> 30 min</button>
+        <button class="btnTime" onclick="filterSelection('45 min')"> 45 min</button>
+        <button class="btnTime" onclick="filterSelection('1 h')"> 1 h</button>
+        <button class="btnTime" onclick="filterSelection('1 h i 30 min')"> 1 h i 30 min</button>
+        <button class="btnTime" onclick="filterSelection('2 h')"> 2 h</button>
+        <button class="btnTime" onclick="filterSelection('3 h')"> 3 h</button>
+        <button class="btnTime" onclick="filterSelection('Duže od 3 h')"> Duže od 3 h</button>
+
+
         <h2>Filter</h2>
 
         <div id="myBtnContainer">
@@ -69,10 +62,9 @@
             <button class="btn" onclick="filterSelection('diets')">Vrste prehrane</button>
             <button class="btn" onclick="filterSelection('season')">Sezona</button>
 
-            <button class="btn-start-search">Start search</button>
         </div>
 
-        <div class="container">
+        <div class="filters-container">
             <div class="filterDiv meal">Doručak</div>
             <div class="filterDiv meal">Ručak</div>
             <div class="filterDiv meal">Večera</div>
@@ -111,11 +103,15 @@
             <div class="filterDiv season">Jesen</div>
             <div class="filterDiv season">Zima</div>
         </div>
+
+        <div class="search-container">
+            <button class="btn-start-search">Start search</button>
+        </div>
+
     </div>
-    <!-- Ako ovo dolje odkomentirate vidit cete kako filter radi -->
 
 
-    <!-- <script>
+    <script>
         filterSelection("all")
         function filterSelection(c) {
             var x, i;
@@ -158,8 +154,9 @@
                 this.className += " active";
             });
         }
-    </script> -->
+    </script>
+
+    
 
 </body>
-
 </html>
