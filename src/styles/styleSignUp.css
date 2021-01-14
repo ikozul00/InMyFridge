@@ -1,8 +1,5 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #DFDBE5;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.172L6.172 0h5.656L0 11.828V6.172zm40 5.656L28.172 0h5.656L40 6.172v5.656zM6.172 12l12-12h3.656l12 12h-5.656L20 3.828 11.828 12H6.172zm12 0L20 10.172 21.828 12h-3.656z' fill='%23e9cf19' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-
+  font-family: 'Montserrat', sans-serif;
 }
 
 * {
@@ -31,7 +28,7 @@ p{
 .container {
   padding: 16px;
   border-radius: 10px;
-  background-color:rgb(232,232,232);
+  background-color:#f2f2f2d8;
   padding: 10px 20px 30px 20px;
   margin-top: 10px;
   margin-left: 400px;
@@ -42,24 +39,25 @@ p{
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
+  padding: 12px;
+  margin: 5px 0;
   display: inline-block;
   border: none;
-  background: #f1f1f1;
-  text-align: center;
-  border-radius: 10px;
+  border-radius: 4px;
+  opacity: 0.85;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; 
 }
 
 input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
-  
 }
 
 /* Overwrite default styles of hr */
 hr {
-  border: 1px solid #f1f1f1;
+  border: 1px solid #afafafc7;
   margin-bottom: 25px;
 }
 
@@ -87,7 +85,7 @@ a {
 
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
-  background-color: rgb(180, 174, 174);
+  background-color: rgba(180, 174, 174, 0.932);
   text-align: center;
 }
 

@@ -13,12 +13,24 @@
 <!-- Dodat naslov da bude clickable da vrati na početnu -->
 
 <body>
+
+    <style>
+        body {
+          background-image: url('images/white-background.jpg');
+          background-size: cover;
+          background-color: rgba(255, 255, 255, 0.521);
+          background-blend-mode: overlay;
+        }
+        </style>
+
     <header>
         <div></div>
-            <img src="images/logo.png" alt="logo" height="100px">
+            <img src="images/logo.png" alt="logo" height="130px">
         <div></div>
     </header>
-    <h2>My Profile</h2>
+
+    <h1>My Profile</h1>
+
     <nav>
         <ul>
             <li>
@@ -41,30 +53,26 @@
             <li>
                 <a href="#">Log Out</a>
             </li>
-
         </ul>
     </nav>
+
     <div class="container">
+
         <div id="aboutMe">
             <h2>About Me</h2>
             <label for="username"><b>Username</b></label>
-            <div class="name">
-                Iva123
-            </div>
-            <label for="email"><b>Email</b></label>
-            <div class="name">
-                iva.ivic@gmail.com
-            </div>
-            <label for="name"><b>Name</b></label>
-            <div class="name">
-                Iva
-            </div>
-            <label for="surname"><b>Surname</b></label>
-            <div class="name">
-                Ivic
-            </div>
-        </div>
+            <div class="name">Iva123</div>
 
+            <label for="email"><b>Email</b></label>
+            <div class="name">iva.ivic@gmail.com</div>
+
+            <label for="name"><b>Name</b></label>
+            <div class="name">Iva</div>
+
+            <label for="surname"><b>Surname</b></label>
+            <div class="name">Ivic</div>
+            
+        </div>
         <!-- Ovo smo napravile samo da izgleda otprilike kako bi tribalo -->
         <!-- Ne znamo na koji način se povezuje s bazom pa ni kako bi tribalo to napravit -->
         <!-- Odnose se komentari i na Favourites -->

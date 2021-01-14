@@ -9,22 +9,33 @@
 
 <body>
 
+    <style>
+        body {
+          background-image: url('images/white-background.jpg');
+          background-size: cover;
+          background-color: rgba(255, 255, 255, 0.521);
+          background-blend-mode: overlay;
+        }
+        </style>
+
     <header>
         <div></div>
             <img src="images/logo.png" alt="logo" height="100px">
         <div></div>
     </header>
-    <h2>Welcome!</h2>
+    
 
     <!-- Ovo smo napravile kao kako bi tribala bit stranica, ali triba je uredit da bi imala smisla -->
     <!-- Možda bi tribalo dodat logo, tj da svaka stranica na vrhu izgleda isto, da bude dosljedno -->
     <!-- Mozda triba dodat naslov da bude clickable da vrati na početnu -->
 
     <div class="container">
+        <h2>Welcome back!</h2>
         <!-- <form action="/action_page.php"> -->
         <form name="login" action="/login" method="POST">
             <div class="row">
-                <h2 style="text-align:center">Login</h2>
+                <h1 style="text-align:center">Login</h1>
+                <hr>
                 <div class="col">
                     <input type="text" name="username" placeholder="Username">
                     <input type="password" name="password" placeholder="Password">
@@ -33,7 +44,7 @@
                 </div>
             </div>
         </form>
-        <p id="errorMessage">Incorrect Username and/or Password!</p>
+        <p style="text-align:center" id="errorMessage">Incorrect Username and/or Password!</p>
     </div>
 
     <div class="bottom-container">
