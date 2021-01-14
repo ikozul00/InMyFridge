@@ -11,7 +11,7 @@ exports.loginUser=function(request,response){
 		client.query(`SELECT username FROM korisnik WHERE username = '${username}' AND lozinka = '${password}' `,  function(err, result) {
 			if (err) throw err;
 			if (typeof (result.rows[0]) !== "undefined") {
-				response.redirect("/");
+				response.redirect("/successful");
 			}
 			else {
 				response.redirect("/failedLogin");

@@ -15,5 +15,8 @@ router.get('/failedLogin',function(request,response){
     response.sendFile(path.join(__dirname+'/src/signInFailed.html'));
 });
 
+router.get('/successful',function(request,response){
+    response.sendFile(path.join(__dirname+'/src/indexSignedIn.html'));
+});
 
 module.exports = router;
