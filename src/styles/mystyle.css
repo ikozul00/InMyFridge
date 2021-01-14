@@ -32,6 +32,18 @@ header {
   font-weight:bolder;
 }
 
+.my-profile {
+  background-color: #da4235;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight:bolder;
+}
+
 .container {
   margin: 5px 100px 5px 100px;
   display:inline-flex;
@@ -51,14 +63,13 @@ img {
 }
 
 .dropbtn {
-  background-color:gray;
-  color: white;
-  padding: 16px;
+  background-color: #f1f1f1;
+  padding: 20px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-  border-radius: 10px;
-  margin: 5px;
+  border-radius: 5px;
+  margin: 5px 0px;
 }
 
 .dropdown {
@@ -100,7 +111,7 @@ img {
 
 #submit {
   padding: 10px;
-  background: gray;
+  background: #da4235;
   border: none;
   color: white;
   font-size: 15px;
