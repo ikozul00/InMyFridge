@@ -27,3 +27,10 @@
      xhttp.send();
      return false;
  }
+
+ function logOut(){
+    xhttp=new XMLHttpRequest();
+    xhttp.open("GET","/logOut",true);
+    xhttp.send();
+    return false;
+ }

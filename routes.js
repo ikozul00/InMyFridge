@@ -6,6 +6,7 @@ const controllersLogin=require('./controllers/loginControler');
 const controllersProfile=require('./controllers/profileControler');
 const app=require("./index");
 var router = express.Router();
+var user=require("./models");
 router.get('/', controllers.readData);
 router.get('/change', controllers.changeData);
 
@@ -20,6 +21,12 @@ router.get('/successful',function(request,response){
     response.sendFile(path.join(__dirname+'/src/indexSignedIn.html'));
 });
 
-router.get('/myProfile',controllersProfile.getProfile)
+router.get('/myProfile',controllersProfile.getProfile);
+router.get('/logOut',function(request,response){
+    user.username="";
+    user.loged=false;
+    user.password="";
+    response.status(200);
+});
 
 module.exports = router;
