@@ -62,26 +62,37 @@
         <div id="aboutMe">
             <h2>About Me</h2>
             <label for="username"><b>Username</b></label>
-            <div class="name">Iva123</div>
+            <div class="name username">Iva123</div>
 
             <label for="email"><b>Email</b></label>
-            <div class="name">iva.ivic@gmail.com</div>
+            <div class="name email">iva.ivic@gmail.com</div>
 
             <label for="name"><b>Name</b></label>
-            <div class="name">Iva</div>
+            <div class="name ime">Iva</div>
 
             <label for="surname"><b>Surname</b></label>
-            <div class="name">Ivic</div>
+            <div class="name surname">Ivic</div>
             
         </div>
         <!-- Ovo smo napravile samo da izgleda otprilike kako bi tribalo -->
         <!-- Ne znamo na koji način se povezuje s bazom pa ni kako bi tribalo to napravit -->
         <!-- Odnose se komentari i na Favourites -->
+        <template id="myRecipesTemplate">
+            <li>
+                <a href="#" id="link"></a>
+                <div class="buttons">
+                    <button class="btnModify">Modify</button>
+                    <button class="btnDelete">Delete</button>
+                </div>
 
+            </li>
+            <hr>
+        </template>
         <div id="myRecipes">
             <h2>My Recipes</h2>
-            <ul>
-                <li>
+            <ul id="myRecipesTable">
+                <!-- sad cita iz baze-->
+                <!-- <li>
                     <a href="#">Muffin s čokoladom</a>
                     <div class="buttons">
                         <button class="btnModify">Modify</button>
@@ -105,13 +116,20 @@
                         <button class="btnDelete">Delete</button>
                     </div>
                 </li>
+                <hr> -->
             </ul>
         </div>
-
+        <template id="favouritesTemplate">
+            <li>
+                <p><a href="#" id="link"></a><i class="fa fa-heart-o heart-icon clickable-icon"></i></p>
+            </li>
+            <hr>
+        </template>
         <div id="favourites">
             <h2>Favourites</h2>
-            <ul>
-                <li>
+            <ul id="favouritesTable">
+                <!-- cita iz baze sad -->
+                <!-- <li>
                     <p><a href="#">Čokoladna torta</a><i class="fa fa-heart-o heart-icon clickable-icon"></i></p>
                 </li>
                 <hr>
@@ -122,6 +140,7 @@
                 <li>
                     <p><a href="#">Jabuka</a><i class="fa fa-heart-o heart-icon clickable-icon"></i></p>
                 </li>
+                <hr> -->
             </ul>
         </div>
     </div>
@@ -150,4 +169,5 @@
 
 </body>
 
+<script src="scripts/myProfile.js"></script>
 </html>
