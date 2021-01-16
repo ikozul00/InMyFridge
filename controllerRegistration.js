@@ -1,12 +1,10 @@
   
 const fs=require("fs");
 const client = require('./conectingDatabase');
-//const funkcije=require("./registration.js");
-
 
 exports.SignUp=function(request,response){
 
-  var username = request.body.username;
+    var username = request.body.username;
     var password = request.body.psw;
     var surname = request.body.surname;
     var name = request.body.name;
@@ -18,7 +16,7 @@ exports.SignUp=function(request,response){
 
 	//provjeri je li lozinka oba puta dobro unesena
 	if(password != passwordRepeat){
-		response.status(404).json({message:'Password unmatched!'});
+		response.redirect("/failedSignUp");
 		response.end();
 	}
 
@@ -29,7 +27,7 @@ exports.SignUp=function(request,response){
 			if (err)
 					throw err;
 			if(typeof (result.rows[0]) !== "undefined"){
-				response.status(404).json({message:'User already exists!'});
+				response.redirect("/failedSignUp");
 				response.end();
 			}
 
@@ -48,7 +46,7 @@ exports.SignUp=function(request,response){
 	}
 
 	else{
-		response.status(404).json({message:'Please enter your infromation!'});
+		response.redirect("/failedSignUp");
 		response.end();
 	}
 };
