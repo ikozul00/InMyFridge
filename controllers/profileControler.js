@@ -30,3 +30,42 @@ exports.getProfile=function(request,response){
         })
     })
 }
+
+
+exports.addFavourites=function addFavourites(request,response){
+    var naziv=request.body.naziv;
+    var sql1=`SELECT id_recepta FROM recept WHERE naziv='${naziv}' `;
+    var sql2=`SELECT id_korisnik FROM korisnik WHERE username='${user.username}' AND password='${user.password}' `;
+    client.query(sql1,function(err,res){
+        if(err) throw err;
+        client.query(sql2,function(err,res2){
+            if(err) throw err;
+            var currentTime=new Date();
+            sql3=`INSERT INTO favoriti(id_korisnik,id_recept,time_stamp) VALUES ('${res.rows[0].id_recepta}','${res2.rows[0].id_korisnika}',${currentTime})' `;
+            client.query(sql3,function(err,res3){
+                if(err) throw err;
+                response.status(200);
+            })
+        })
+    })
+}
+
+
+exports.removeFavourites=function removeFavourites(request,response){
+    var naziv=request.body.name;
+    var sql1=`DELETE FROM favoriti WHERE id_korisnik=(SELECT id_korisnik FROM korisnik WHERE username='${user.username}') AND id_recept=(SELECT id_recepta FROM recept WHERE naziv='${naziv}')
+    RETURNING * `;
+    client.query(sql1,function(err,res){
+        if(err) throw err;
+            response.status(200).json({"message":"found"});
+    })
+}
+
+exports.removeRecipe=function removeRecipe(request,response){
+    var naziv=request.body.name;
+    var sql=`DELETE FROM recept WHERE naziv='${naziv}' AND id_korisnik=(SELECT id_korisnik FROM korisnik WHERE username='${user.username}') `;
+    client.query(sql,function(err,res){
+        if(err) throw err;
+            response.status(200).json({"message":"found"});
+    })
+}

@@ -29,4 +29,8 @@ router.get('/logOut',function(request,response){
     response.status(200);
 });
 
+router.post('/removeFavourites',controllersProfile.removeFavourites);
+router.post('/addFavourites',controllersProfile.addFavourites);
+router.post('/removeRecipe',controllersProfile.removeRecipe);
+
 module.exports = router;

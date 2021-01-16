@@ -10,4 +10,3 @@
 //     xhttp.open("GET","/login",true);
 //     xhttp.send();
 //     return false;
-}
