@@ -28,11 +28,11 @@
         <img src="images\logo.png" alt="logo">
         <div class="search">
             <div class="dropdown">
-                <button class="dropbtn">Izaberi pretraživanje</button>
+                <button class="dropbtn" id="search-choice-button">Izaberi pretraživanje</button>
                 <div class="dropdown-content">
-                    <a href="#">Po receptu</a>
-                    <a href="#">Po autoru</a>
-                    <a href="#">Po sastojcima</a>
+                    <a href="#" id="option-recipe">Po receptu</a>
+                    <a href="#" id="option-author">Po autoru</a>
+                    <a href="#" id="option-ingredients">Po sastojcima</a>
                 </div>
             </div>
 
@@ -116,6 +116,17 @@
             <button class="btn-start-search">Start search</button>
         </div>
 
+
+        <template id="RecipesTemplate">
+            <li>
+                <a href="#" id="link"></a>
+            </li>
+            <hr>
+        </template>
+        <div id="foundRecipes">
+            <h2>Found recipes:</h2>
+            <ul id="RecipesTable"></ul>
+        </div>
     </div>
 
 
@@ -164,7 +175,7 @@
         }
     </script>
 
-    
+<script src="./scripts/search.js"></script>
 
 </body>
 </html>

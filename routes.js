@@ -5,6 +5,7 @@ const controllers=require('./controllers/controllers');
 const controllersLogin=require('./controllers/loginControler');
 const controllersProfile=require('./controllers/profileControler');
 const controllersRegistration = require('./controllers/controllerRegistration');
+const controllersRecipeSearch = require('./controllers/recipeSearchController.js');
 const app=require("./index");
 var router = express.Router();
 var user=require("./models");
@@ -39,5 +40,8 @@ router.get('/logOut',function(request,response){
 router.post('/removeFavourites',controllersProfile.removeFavourites);
 router.post('/addFavourites',controllersProfile.addFavourites);
 router.post('/removeRecipe',controllersProfile.removeRecipe);
+
+//Pretraga
+router.post('/searchByAuthor',controllersRecipeSearch.searchByAuthor);
 
 module.exports = router;
