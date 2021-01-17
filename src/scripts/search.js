@@ -3,6 +3,7 @@ var myInput = document.getElementById("myInput");
 var searchChoice = document.querySelectorAll(".dropdown-content a");
 var searchChoiceButton =document.getElementById("search-choice-button");
 var selectedSearchChoice;
+var recipesTable = document.querySelector("#RecipesTable");
 
 //Odabir vrste pretrage u drop-down menuu
 for(let choice of searchChoice){
@@ -15,7 +16,12 @@ function handleSearchChoiceClick(e){
 
 //Dodan event listener na button "Search"
 searchButton.addEventListener("click", handleSearchButtonClick);
-function handleSearchButtonClick(){
+function handleSearchButtonClick(event){
+
+event.preventDefault(); //Ovo sprječava refreshanje stranice nakon klika na button
+while (recipesTable.firstChild) {                   //Brisemo odgovore na proslu pretragu
+    recipesTable.removeChild(recipesTable.firstChild);
+}
 
 if(myInput.value == ""){
     alert("Unesite vrijednost u polje pretrage!");  //Provjeri je li ista uneseno u polje pretrage
@@ -30,7 +36,9 @@ var inputValue = myInput.value;
 
 if(selectedSearchChoice == document.getElementById("option-author")){   //Odabrana pretraga po autoru
     xhttp=new XMLHttpRequest();
+    console.log("Novi request")
     xhttp.onreadystatechange = function() {
+        console.log(this.readyState);
         if (this.readyState == 4 && this.status == 200){
             var obj=JSON.parse(this.responseText);
             console.log(obj);
