@@ -89,3 +89,8 @@ a {
   text-align: center;
 }
 
+#errorMessage {
+  text-align:center; 
+  background-color: rgb(236, 124, 124);
+  padding: 10px 20px 30px 20px;
+}

@@ -4,6 +4,7 @@ var path=require("path");
 const controllers=require('./controllers/controllers');
 const controllersLogin=require('./controllers/loginControler');
 const controllersProfile=require('./controllers/profileControler');
+const controllersRegistration = require('./controllers/controllerRegistration');
 const app=require("./index");
 var router = express.Router();
 var user=require("./models");
@@ -19,6 +20,12 @@ router.get('/failedLogin',function(request,response){
 
 router.get('/successful',function(request,response){
     response.sendFile(path.join(__dirname+'/src/indexSignedIn.html'));
+});
+
+//Registracija
+router.post('/registration', controllersRegistration.SignUp);
+router.get('/failedSignUp',function(request,response){
+    response.sendFile(path.join(__dirname+'/src/signUpError.html'));
 });
 
 router.get('/myProfile',controllersProfile.getProfile);
