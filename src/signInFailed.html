@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign In</title>
+    <title>InMyFridge</title>
     <link rel="icon" href="images/logo-icon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/styleSignIn.css">
@@ -13,27 +13,22 @@
 
     <style>
         body {
-          background-image: url('images/white-background.jpg');
-          background-size: cover;
-          background-color: rgba(255, 255, 255, 0.521);
-          background-blend-mode: overlay;
+            background-image: url('images/white-background.jpg');
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.521);
+            background-blend-mode: overlay;
         }
-        </style>
+    </style>
 
     <header>
         <div></div>
-            <img src="images/logo.png" alt="logo" height="100px">
+        <img src="images/logo.png" alt="logo" height="100px">
         <div></div>
     </header>
-    
 
-    <!-- Ovo smo napravile kao kako bi tribala bit stranica, ali triba je uredit da bi imala smisla -->
-    <!-- Možda bi tribalo dodat logo, tj da svaka stranica na vrhu izgleda isto, da bude dosljedno -->
-    <!-- Mozda triba dodat naslov da bude clickable da vrati na početnu -->
 
     <div class="container">
         <h2>Welcome back!</h2>
-        <!-- <form action="/action_page.php"> -->
         <form name="login" action="/login" method="POST">
             <div class="row">
                 <h1 style="text-align:center">Login</h1>
@@ -42,7 +37,6 @@
                     <input type="text" name="username" placeholder="Username">
                     <input type="password" name="password" placeholder="Password">
                     <input type="submit" value="Login">
-                    <!-- triba dodat da ide na pocetnu stranicu -->
                 </div>
             </div>
         </form>

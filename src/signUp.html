@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign Up</title>
+    <title>InMyFridge</title>
     <link rel="icon" href="images/logo-icon.ico">
     <link rel="stylesheet" href="styles/styleSignUp.css">
 </head>
@@ -12,51 +12,41 @@
 
     <style>
         body {
-          background-image: url('images/white-background.jpg');
-          background-size: cover;
-          background-color: rgba(255, 255, 255, 0.521);
-          background-blend-mode: overlay;
+            background-image: url('images/white-background.jpg');
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.521);
+            background-blend-mode: overlay;
         }
-        </style>
+    </style>
 
     <header>
         <div></div>
-            <img src="images/logo.png" alt="logo" height="100px">
+        <img src="images/logo.png" alt="logo" height="100px">
         <div></div>
     </header>
-    
-    <!-- Možda bi tribalo dodat logo, tj da svaka stranica na vrhu izgleda isto, da bude dosljedno -->
-    <!-- Mozda triba dodat naslov da bude clickable da vrati na početnu -->
-    
 
-   <form action="/registration" method="POST">
-    <div class="container">
-        <h2>Welcome!</h2>
-         <h1>Register</h1>
+
+    <form action="/registration" method="POST">
+        <div class="container">
+            <h2>Welcome!</h2>
+            <h1>Register</h1>
             <p>Please fill in this form to create an account.</p>
             <hr>
 
-            <!-- <label for="name"><b>Name</b></label> -->
             <input type="text" placeholder="Name" name="name" id="name" required>
 
-            <!-- <label for="surname"><b>Surname</b></label>-->
             <input type="text" placeholder="Surname" name="surname" id="surname" required>
 
-            <!-- <label for="email"><b>Email</b></label>-->
             <input type="text" placeholder="Email" name="email" id="email" required>
 
-            <!-- <label for="username"><b>Username</b></label>-->
             <input type="text" placeholder="Username" name="username" id="username" required>
 
-            <!-- <label for="psw"><b>Password</b></label>-->
             <input type="password" placeholder="Create a password" name="psw" id="psw" required>
 
-            <!-- <label for="psw-repeat"><b>Repeat Password</b></label>-->
             <input type="password" placeholder="Repeat password" name="pswRepeat" id="psw-repeat" required>
-            
 
             <button type="submit" class="registerbtn">Sign Up</button>
-            
+
         </div>
 
 
