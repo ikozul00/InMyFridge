@@ -1,6 +1,7 @@
   
 const fs=require("fs");
 const client = require('../conectingDatabase');
+var user=require('../models');
 
 exports.SignUp=function(request,response){
 
@@ -38,6 +39,9 @@ exports.SignUp=function(request,response){
 						if (err)
 							throw err;
 
+						user.username=username;
+						user.password=password;
+						user.loged=true;
 						response.redirect("/successful");
 						response.end();
 					});
