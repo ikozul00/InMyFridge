@@ -20,3 +20,23 @@ exports.searchByAuthor=function(request,response){
         });
         
 }
+
+exports.searchByRecipe=function(request,response){
+   
+    var name = request.body.name;
+    var sqlRecipes=`SELECT naziv FROM recept WHERE naziv LIKE '%${name}%' `;
+
+    client.query(sqlRecipes,function(err,result){
+        if(err) throw err;
+
+        var recepti=[];
+        for(let i=0;i<result.rows.length;i++){
+            recepti.push(result.rows[i]);
+        }
+
+        response.contentType('application/json');
+        response.send(JSON.stringify(recepti));
+        response.end();
+    });
+    
+}

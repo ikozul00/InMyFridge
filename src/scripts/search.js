@@ -34,11 +34,12 @@ if(searchChoiceButton.innerHTML=="Izaberi pretraživanje"){      //Provjeri je l
 
 var inputValue = myInput.value;
 
-if(selectedSearchChoice == document.getElementById("option-author")){   //Odabrana pretraga po autoru
+//Odabrana pretraga po autoru
+if(selectedSearchChoice == document.getElementById("option-author")){   
     xhttp=new XMLHttpRequest();
-    console.log("Novi request")
+    
     xhttp.onreadystatechange = function() {
-        console.log(this.readyState);
+        
         if (this.readyState == 4 && this.status == 200){
             var obj=JSON.parse(this.responseText);
             console.log(obj);
@@ -66,5 +67,37 @@ if(selectedSearchChoice == document.getElementById("option-author")){   //Odabra
      return false;
 }
 
+//Odabrana pretraga po nazivu recepta
+if(selectedSearchChoice == document.getElementById("option-recipe")){   
+    xhttp=new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function() {
+        
+        if (this.readyState == 4 && this.status == 200){
+            var obj=JSON.parse(this.responseText);
+            console.log(obj);
+
+            for(let i=0;i<obj.length;i++){
+                let receptTemplate=document.querySelector("#RecipesTemplate");
+                let recept=document.importNode(receptTemplate.content,true);
+                recept.querySelector("a").innerHTML=obj[i].naziv;
+                document.querySelector("#RecipesTable").appendChild(recept);
+            }
+            if(obj.length == 0){
+                let receptTemplate=document.querySelector("#RecipesTemplate");
+                let recept=document.importNode(receptTemplate.content,true);
+                recept.querySelector("a").innerHTML="Nema recepata koji odgovaraju upitu!";
+                document.querySelector("#RecipesTable").appendChild(recept);
+            }
+        }
+    };
+
+    var postRequest = "name=" + inputValue; 
+     xhttp.open("POST","/searchByRecipe",true);
+     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+     xhttp.send(postRequest);
+     
+     return false;
+}
 
 }
