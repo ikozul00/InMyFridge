@@ -43,5 +43,6 @@ router.post('/removeRecipe',controllersProfile.removeRecipe);
 
 //Pretraga
 router.post('/searchByAuthor',controllersRecipeSearch.searchByAuthor);
+router.post('/searchByRecipe',controllersRecipeSearch.searchByRecipe);
 
 module.exports = router;
