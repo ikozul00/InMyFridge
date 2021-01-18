@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>InMyFridge</title>
     <link rel="icon" href="images/logo-icon.ico">
-    <link rel="stylesheet" href="styles/styleSignUp.css">
+    <link rel="stylesheet" href="styles/styleRecipe.css">
     <link rel="stylesheet" href="styles/font-awesome.min.css" />
 </head>
 
@@ -22,27 +22,68 @@
 
     <header>
         <div></div>
-        <img src="images/logo.png" alt="logo" height="100px">
+        <a href="#"><img src="images/logo.png" alt="logo" height="100px" id="logo"></a> 
         <div></div>
     </header>
 
     <div class="container">
         <div>
-            <h1>Naslov</h1>
-            <p><a href="#" id="link"></a><i class="fa fa-heart heart-icon clickable-icon"></i></p>
+            <h1>Juha od poriluka</h1>
+            <h3><i class="fa fa-heart-o heart-icon clickable-icon"></i></h3>
         </div>
-        <h3>Ime Autora</h3>
+        <h4>Ime Autora</h4>
     </div>
-    <div class="container">
-        <h2>Sastojci:</h2>
-        <!-- Na ovakav nacin je u favorites napravljeno da se cita iz baze, ali mi to nismo omogućile da radi -->
-        <!-- <ul id="ingredientsTable"></ul> -->
-        <h2>Priprema:</h2>
-        <!-- Na ovakav nacin je u favorites napravljeno da se cita iz baze, ali mi to nismo omogućile da radi -->
-        <!-- <ul id="preparationTable"></ul> -->
+    <hr>
+
+    <!-- Na ovakav nacin je u favorites napravljeno da se cita iz baze, ali mi to nismo omogućile da radi -->
+    <!-- <ul id="ingredientsTable"></ul> -->
+    <div class="second-container">
+        <div class="ingredients-container">
+            <ul><h2>Sastojci</h2>
+            <!-- ovo sam stavila samo da mogu vidit kako izgleda stranica-->
+            <li>poriluk</li>
+            <li>krumpiri</li>
+            <li>sol</li>
+            <li>vegeta</li>
+        </ul>   
+        </div>
+
+        <div class="recipe-container">
+            <h2>Priprema</h2>
+            <!--isto da vidim kako izgleda. ne znam kako ce se recept prinit iz baze; oce li sve bit lipo odvojeno ka sta ste unili u bazu -->
+            <p>1. Poriluk isprati pod mlazom vode. Izrezati ga na tanke kolutiće. (Za juhu koristim samo bijeli dio poriluka, zeleni dio – listove izrežem i spremim u zamrzivač i koristim kao dodatak drugim jelima). Ponovno isprati i staviti u cijedilo.
+                <br>
+                2. Krumpire oguliti, isprati i izrezati na male kockice.
+                <br>
+                3. U lonac u kojem ćemo kuhati juhu, stavimo maslac na skroz laganu vatru da se polako otopi.
+                <br>
+                4. Dodamo krumpire, miješamo i dinstamo cca 5 minuta(Vatra je skroz lagana).
+                <br>
+                5. Dodamo vode tek toliko da prekrije krumpir , ubacimo sol i neka kuha još cca 5 min (poklopimo).Za to vrijeme poriluk skroz usitnimo nožem.
+                <br>
+                6. Maknemo lonac sa vatre uzmemo gnječilicu za krumpir i “prognječimo” kockice krumpira, ubacimo usitnjeni poriluk, dodamo vegetu, papar, nadolijemo ostatak vode i stavimo kuhati još oko 20-ak minuta na laganoj vatri.
+                <br>
+                7. Kad je gotova, ako je potrebno dosolite i popaprite( po želji)</p>
+            <!-- Na ovakav nacin je u favorites napravljeno da se cita iz baze, ali mi to nismo omogućile da radi -->
+            <!-- <ul id="preparationTable"></ul> -->
+            <hr>
+            <div class="tag-container">   
+                <ul><h3>Tagovi</h3>
+                <!-- ovo sam stavila samo da mogu vidit kako izgleda stranica-->
+                <li><a href="#">ručak</a></li>
+                <li><a href="#">juha</a></li>
+                <li><a href="#">vegeterijanska</a></li>
+                <li><a href="#">vegeterijanska</a></li>
+                <li><a href="#">vegeterijanska</a></li>
+                <li><a href="#">vegeterijanska</a></li>
+                </ul>
+            </div>
+            <hr>
+        </div>
+        
     </div>
 </body>
 
-
+<script src="scripts/myProfile.js"></script>
 
 </html>
