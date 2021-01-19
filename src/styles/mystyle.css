@@ -235,3 +235,16 @@ img {
   font-size: 5px;
   color: black;
 }
+
+#foundRecipes h2{
+  font-size: 25px;
+}
+
+#foundRecipes ul {
+  list-style: none;
+}
+#foundRecipes ul li a{
+  text-decoration: none ;
+  color:#b8545e;
+  font-size: 25px;
+}

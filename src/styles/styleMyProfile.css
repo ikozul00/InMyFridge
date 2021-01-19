@@ -90,6 +90,7 @@ nav  li a:hover {
   font-size: 20px;
   margin: 5px;
   text-decoration: none;
+  color: #b8545e;
 }
 
 .btnModify {
@@ -97,7 +98,7 @@ nav  li a:hover {
   border: none;
   position: center;
   padding: 10px;
-  color: white;
+  color: rgb(26, 24, 24);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -108,7 +109,7 @@ nav  li a:hover {
   border: none;
   position: center;
   padding: 10px;
-  color: white;
+  color: rgb(26, 24, 24);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -135,6 +136,7 @@ nav  li a:hover {
   font-size: 20px;
   margin: 5px;
   text-decoration: none;
+  color: #b8545e;
 }
 
 p {
