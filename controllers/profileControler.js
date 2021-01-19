@@ -33,15 +33,15 @@ exports.getProfile=function(request,response){
 
 
 exports.addFavourites=function addFavourites(request,response){
-    var naziv=request.body.naziv;
+    var naziv=request.body.name;
     var sql1=`SELECT id_recepta FROM recept WHERE naziv='${naziv}' `;
-    var sql2=`SELECT id_korisnik FROM korisnik WHERE username='${user.username}' AND password='${user.password}' `;
+    var sql2=`SELECT id_korisnik FROM korisnik WHERE username='${user.username}' AND lozinka='${user.password}' `;
     client.query(sql1,function(err,res){
         if(err) throw err;
         client.query(sql2,function(err,res2){
             if(err) throw err;
-            var currentTime=new Date();
-            sql3=`INSERT INTO favoriti(id_korisnik,id_recept,time_stamp) VALUES ('${res.rows[0].id_recepta}','${res2.rows[0].id_korisnika}',${currentTime})' `;
+            console.log(res2.rows);
+            sql3=`INSERT INTO favoriti(id_korisnik,id_recept) VALUES ('${res2.rows[0].id_korisnik}','${res.rows[0].id_recepta}') `;
             client.query(sql3,function(err,res3){
                 if(err) throw err;
                 response.status(200);

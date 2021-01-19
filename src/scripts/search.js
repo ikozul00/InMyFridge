@@ -157,7 +157,9 @@ if(selectedSearchChoice == document.getElementById("option-recipe")){
             for(let i=0;i<obj.length;i++){
                 let receptTemplate=document.querySelector("#RecipesTemplate");
                 let recept=document.importNode(receptTemplate.content,true);
-                recept.querySelector("a").innerHTML=obj[i].naziv;
+                let link=recept.querySelector("a");
+                link.innerHTML=obj[i].naziv;
+                link.addEventListener("click",handleLinkClick);
                 document.querySelector("#RecipesTable").appendChild(recept);
             }
             if(obj.length == 0){
@@ -324,7 +326,9 @@ function handleStartSearchButtonClick(event){
                 for(let i=0;i<obj.length;i++){
                     let receptTemplate=document.querySelector("#RecipesTemplate");
                     let recept=document.importNode(receptTemplate.content,true);
-                    recept.querySelector("a").innerHTML=obj[i].naziv;
+                    let link=recept.querySelector("a");
+                    link.innerHTML=obj[i].naziv;
+                    link.addEventListener("click",handleLinkClick);
                     document.querySelector("#RecipesTable").appendChild(recept);
                 }
                 if(obj.length == 0){
@@ -369,7 +373,9 @@ function handleStartSearchButtonClick(event){
                 for(let i=0;i<obj.length;i++){
                     let receptTemplate=document.querySelector("#RecipesTemplate");
                     let recept=document.importNode(receptTemplate.content,true);
-                    recept.querySelector("a").innerHTML=obj[i].naziv;
+                    let link=recept.querySelector("a");
+                    link.innerHTML=obj[i].naziv;
+                    link.addEventListener("click",handleLinkClick);
                     document.querySelector("#RecipesTable").appendChild(recept);
                 }
                 if(obj.length == 0){
@@ -402,3 +408,17 @@ function handleStartSearchButtonClick(event){
         return false;
     }
 }
+
+
+
+//otvaranje recepta
+function handleLinkClick(e){
+    console.log("pozvala se");
+    let name=e.currentTarget.innerHTML;
+    console.log(name);
+    let xhttp=new XMLHttpRequest();
+    xhttp.open("POST","/recipeName",true);
+    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhttp.send("name="+name);
+    return true;
+ }

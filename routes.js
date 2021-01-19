@@ -6,6 +6,7 @@ const controllersLogin=require('./controllers/loginControler');
 const controllersProfile=require('./controllers/profileControler');
 const controllersRegistration = require('./controllers/controllerRegistration');
 const controllersRecipeSearch = require('./controllers/recipeSearchController.js');
+const controllersRecipe=require("./controllers/recipeControler");
 const app=require("./index");
 var router = express.Router();
 var user=require("./models");
@@ -29,6 +30,8 @@ router.get('/failedSignUp',function(request,response){
     response.sendFile(path.join(__dirname+'/src/signUpError.html'));
 });
 
+
+//my profile
 router.get('/myProfile',controllersProfile.getProfile);
 router.get('/logOut',function(request,response){
     user.username="";
@@ -36,7 +39,6 @@ router.get('/logOut',function(request,response){
     user.password="";
     response.status(200);
 });
-
 router.post('/removeFavourites',controllersProfile.removeFavourites);
 router.post('/addFavourites',controllersProfile.addFavourites);
 router.post('/removeRecipe',controllersProfile.removeRecipe);
@@ -47,5 +49,9 @@ router.post('/searchByRecipe',controllersRecipeSearch.searchByRecipe);
 router.post('/searchByTags',controllersRecipeSearch.searchByTags);
 router.post('/searchByTagsAndTime',controllersRecipeSearch.searchByTagsAndTime);
 router.post('/searchByIngredients',controllersRecipeSearch.searchByIngredients)
+
+//Recept
+router.post('/recipeName',controllersRecipe.nameRecipe);
+router.get('/recipe',controllersRecipe.getRecipe);
 
 module.exports = router;
