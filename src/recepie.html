@@ -28,10 +28,10 @@
 
     <div class="container">
         <div>
-            <h1>Juha od poriluka</h1>
+            <h1 class=naziv></h1>
             <h3><i class="fa fa-heart-o heart-icon clickable-icon"></i></h3>
         </div>
-        <h4>Ime Autora</h4>
+        <h4 class=imeAutora></h4>
     </div>
     <hr>
 
@@ -39,20 +39,20 @@
     <!-- <ul id="ingredientsTable"></ul> -->
     <div class="second-container">
         <div class="ingredients-container">
-            <ul><h2>Sastojci</h2>
+            <ul class="sastojci"><h2>Sastojci</h2>
             <!-- ovo sam stavila samo da mogu vidit kako izgleda stranica-->
-            <li>poriluk</li>
+            <!-- <li>poriluk</li>
             <li>krumpiri</li>
             <li>sol</li>
-            <li>vegeta</li>
+            <li>vegeta</li> -->
         </ul>   
         </div>
 
         <div class="recipe-container">
             <h2>Priprema</h2>
             <!--isto da vidim kako izgleda. ne znam kako ce se recept prinit iz baze; oce li sve bit lipo odvojeno ka sta ste unili u bazu -->
-            <p>1. Poriluk isprati pod mlazom vode. Izrezati ga na tanke kolutiće. (Za juhu koristim samo bijeli dio poriluka, zeleni dio – listove izrežem i spremim u zamrzivač i koristim kao dodatak drugim jelima). Ponovno isprati i staviti u cijedilo.
-                <br>
+            <p class=sadrzaj>
+                <!-- <br>
                 2. Krumpire oguliti, isprati i izrezati na male kockice.
                 <br>
                 3. U lonac u kojem ćemo kuhati juhu, stavimo maslac na skroz laganu vatru da se polako otopi.
@@ -63,19 +63,23 @@
                 <br>
                 6. Maknemo lonac sa vatre uzmemo gnječilicu za krumpir i “prognječimo” kockice krumpira, ubacimo usitnjeni poriluk, dodamo vegetu, papar, nadolijemo ostatak vode i stavimo kuhati još oko 20-ak minuta na laganoj vatri.
                 <br>
-                7. Kad je gotova, ako je potrebno dosolite i popaprite( po želji)</p>
+                7. Kad je gotova, ako je potrebno dosolite i popaprite( po želji) -->
+            </p>
             <!-- Na ovakav nacin je u favorites napravljeno da se cita iz baze, ali mi to nismo omogućile da radi -->
             <!-- <ul id="preparationTable"></ul> -->
             <hr>
+            <template class="tag">
+                <li><a href="#"></a></li>
+            </template>
             <div class="tag-container">   
-                <ul><h3>Tagovi</h3>
+                <ul class="tagovi"><h3>Tagovi</h3>
                 <!-- ovo sam stavila samo da mogu vidit kako izgleda stranica-->
-                <li><a href="#">ručak</a></li>
+                <!-- <li><a href="#">ručak</a></li>
                 <li><a href="#">juha</a></li>
                 <li><a href="#">vegeterijanska</a></li>
                 <li><a href="#">vegeterijanska</a></li>
                 <li><a href="#">vegeterijanska</a></li>
-                <li><a href="#">vegeterijanska</a></li>
+                <li><a href="#">vegeterijanska</a></li> -->
                 </ul>
             </div>
             <hr>
@@ -84,6 +88,6 @@
     </div>
 </body>
 
-<script src="scripts/myProfile.js"></script>
+<script src="scripts/recipe.js"></script>
 
 </html>
