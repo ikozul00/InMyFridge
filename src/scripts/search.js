@@ -134,7 +134,9 @@ if(selectedSearchChoice == document.getElementById("option-author")){
             for(let i=0;i<obj.length;i++){
                 let receptTemplate=document.querySelector("#RecipesTemplate");
                 let recept=document.importNode(receptTemplate.content,true);
-                recept.querySelector("a").innerHTML=obj[i].naziv;
+                let link=recept.querySelector("a");
+                link.innerHTML=obj[i].naziv;
+                link.addEventListener("click",handleLinkClick);
                 document.querySelector("#RecipesTable").appendChild(recept);
             }
             if(obj.length == 0){
@@ -202,7 +204,9 @@ if(selectedSearchChoice == document.getElementById("option-ingredients")){
             for(let i=0;i<obj.length;i++){
                 let receptTemplate=document.querySelector("#RecipesTemplate");
                 let recept=document.importNode(receptTemplate.content,true);
-                recept.querySelector("a").innerHTML=obj[i].naziv;
+                let link=recept.querySelector("a")
+                link.innerHTML=obj[i].naziv;
+                link.addEventListener("click",handleLinkClick);
                 document.querySelector("#RecipesTable").appendChild(recept);
             }
             if(obj.length == 0){
