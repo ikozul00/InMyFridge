@@ -24,9 +24,9 @@ exports.getRecipe=function (request,response){
                 for(let i=0;i<result3.rows.length;i++){
                     tagovi[i]=result3.rows[i].naziv;
                 }
-                var prijavljen;
-                var favorit;
-                if(user.username!==" "){
+                var prijavljen=false;
+                var favorit=false;
+                if(user.username!=" "){
                     prijavljen=true;
                     var sql4=`SELECT * FROM favoriti WHERE id_recept='${row.id_recepta}' AND id_korisnik=(SELECT id_korisnik FROM korisnik WHERE username='${user.username}' AND lozinka='${user.password}') `;
                     client.query(sql4,function(err,result4){
