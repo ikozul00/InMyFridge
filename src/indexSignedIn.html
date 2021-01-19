@@ -7,6 +7,7 @@
     <link rel="icon" href="images/logo-icon.ico">
     <link rel="stylesheet" href="styles/mystyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -38,8 +39,11 @@
 
             <form autocomplete="off">
                 <div class="autocomplete" style="width:300px;">
-                    <input id="myInput" type="text" name="search" placeholder="Type here">
+                    <div class="iput-div"><input id="myInput" type="text" name="search" placeholder="Type here"><i class="fa fa-plus" id="plus-icon"></i></div>
                     <input id="submit" type="submit" value="Search">
+                    <div class="ingredientDiv" style="visibility: hidden;"><div class="ingredient"></div></div>
+                    <div class="ingredientDiv" style="visibility: hidden;"><div class="ingredient"></div></div>
+                    <div class="ingredientDiv" style="visibility: hidden;"><div class="ingredient"></div></div>
                     
                 </div>
             </form>

@@ -48,6 +48,7 @@ router.post('/searchByAuthor',controllersRecipeSearch.searchByAuthor);
 router.post('/searchByRecipe',controllersRecipeSearch.searchByRecipe);
 router.post('/searchByTags',controllersRecipeSearch.searchByTags);
 router.post('/searchByTagsAndTime',controllersRecipeSearch.searchByTagsAndTime);
+router.post('/searchByIngredients',controllersRecipeSearch.searchByIngredients)
 
 //Recept
 router.post('/recipeName',controllersRecipe.nameRecipe);
