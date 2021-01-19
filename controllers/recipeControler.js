@@ -54,3 +54,12 @@ exports.getRecipe=function (request,response){
 exports.nameRecipe=function(request,response){
     recipe.naziv=request.body.name;
 }
+
+exports.userLoged=function(request,response){
+    if(user.loged){
+        response.status(200).json({"loged":true});
+    }
+    else{
+        response.status(200).json({"loged":false});
+    }
+}

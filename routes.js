@@ -52,5 +52,6 @@ router.post('/searchByTagsAndTime',controllersRecipeSearch.searchByTagsAndTime);
 //Recept
 router.post('/recipeName',controllersRecipe.nameRecipe);
 router.get('/recipe',controllersRecipe.getRecipe);
+router.get('/userLoged',controllersRecipe.userLoged);
 
 module.exports = router;

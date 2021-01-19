@@ -1,3 +1,4 @@
+
 let globalnaPrijavljen;
 
 window.onload=function myRecipe(){
@@ -54,24 +55,27 @@ function handleHeartIconClick(e){
     let heartIcon = e.currentTarget;
     let container=heartIcon.parentElement;
     let name=container.parentElement.querySelector(".naziv").innerHTML;
-    console.log(globalnaPrijavljen);
     if(globalnaPrijavljen){
         if(heartIcon.classList.contains("fa-heart-o")){
-            xhttp=new XMLHttpRequest();
-            console.log("pozvana");
-             //xhttp.onreadystatechange = function(){
-                 //if (this.readyState == 4 && this.status == 200){
-                     console.log("pozvana");
+            let xhttp=new XMLHttpRequest();
+             xhttp.onreadystatechange = function(){
+                 if (this.readyState == 4 && this.status == 200){
+                     var obj=JSON.parse(xhttp.responseText);
+                    if(obj.loged){
                     heartIcon.classList.remove("fa-heart-o");
                     heartIcon.classList.add("fa-heart");
-               // }
-            //};
+                    }
+                    else{
+                        alert("You have to be logged in to add recipe to favorites");
+                    }
+               }
+            };
                 xhttp.open("POST","/addFavourites",true);
                 xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhttp.send("name="+name);
         }
         else {
-            xhttp=new XMLHttpRequest();
+            let xhttp=new XMLHttpRequest();
             xhttp.onreadystatechange = function(){
                 if (this.readyState == 4 && this.status == 200){
                     heartIcon.classList.remove("fa-heart");
@@ -86,4 +90,22 @@ function handleHeartIconClick(e){
     else{
         alert("You have to be logged in to add recipe to favorites");
     }
+}
+
+function rightPage(){
+    let xhttp=new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            var obj=JSON.parse(this.responseText);
+            console.log(obj.loged);
+            if(obj.loged){
+                window.location.href="../indexSignedIn.html";
+            }
+            else{
+                window.location.href="../index.html"
+            }
+        }
+    };
+    xhttp.open("GET","/userLoged",true);
+    xhttp.send();
 }
