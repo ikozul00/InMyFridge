@@ -6,6 +6,19 @@ var selectedSearchChoice;
 var recipesTable = document.querySelector("#RecipesTable");
 var tags = document.querySelectorAll(".filterDiv"); //Tu spremimo sve tagove
 var selectedTags=[];        //Ovdje spremamo sve selektane tagove
+var timeTags = document.querySelectorAll(".btnTime");   //Svi vremenski tagovi
+var selectedTimeTag = null; //Odabrani vremenski tag
+
+//Dodajmo event listener na sve tagove
+for(let tag of tags){
+    tag.addEventListener("click", handleTagClick);
+}
+
+//Dodajmo event listener na svaki vremenski tag
+for(let tag of timeTags){
+    tag.addEventListener("click", handleTimeTagClick);
+}
+
 
 //Odabir vrste pretrage u drop-down menuu
 for(let choice of searchChoice){
@@ -32,6 +45,18 @@ if(myInput.value == ""){
 if(searchChoiceButton.innerHTML=="Izaberi pretraživanje"){      //Provjeri je li odabrana vrsta pretrage
     alert("Odaberite vrstu pretrage!");
     return;
+}
+
+//Kada korisnik klikne search, neka se deselectaju svi tagovi
+//Ako je odabbran neki time tag i njega deseelctaj
+for(let i=selectedTags.length-1; i>=0; i--){ 
+    selectedTags[i].classList.remove("selected-tag");
+    selectedTags[i].style.backgroundColor="#d4616d";
+    selectedTags.pop();
+}
+if(selectedTimeTag != null){
+    selectedTimeTag.style.backgroundColor="#5ca852"
+    selectedTimeTag = null;
 }
 
 var inputValue = myInput.value;
@@ -104,13 +129,9 @@ if(selectedSearchChoice == document.getElementById("option-recipe")){
 
 }
 
-//Za tagove namjestimo da imaju zeleni rub ako su kliknuti
+//Za tagove namjestimo da su zeleni ako su kliknuti
 //Upozorenje ako je selectano više od pet tagova
 //Ako se drugi put klikne na tag, unselecta se
-for(let tag of tags){
-    tag.addEventListener("click", handleTagClick);
-}
-
 function handleTagClick(e){
 
     let clickedTag = e.currentTarget;
@@ -142,7 +163,46 @@ function handleTagClick(e){
     return false;
 }
 
+//Event listener za vremenske tagove
+function handleTimeTagClick(event){
+    let clickedTag = event.currentTarget;
+
+    if(clickedTag === selectedTimeTag){ //dvaput klikli na isti tag
+        selectedTimeTag = null;
+        clickedTag.style.backgroundColor="#5ca852";
+    }
+    else if(selectedTimeTag === null){  // dosad nije ništa bilo selectano
+        selectedTimeTag = clickedTag;
+        selectedTimeTag.style.backgroundColor = "#6495ED";
+    }
+    else{       //neki drugi tag je bio selectan
+        selectedTimeTag.style.backgroundColor="#5ca852"
+        selectedTimeTag = clickedTag;
+        selectedTimeTag.style.backgroundColor = "#6495ED";
+    }
+    return false;
+}
+
+//Funkcija pridružuje vrijednost u minutama za vremenske tagove
+function hoursToMinutes(){
+    
+    let timeString="";
+    if(selectedTimeTag === null) timeString="0";
+    else if(selectedTimeTag.innerHTML == "15 min") timeString="15";
+    else if(selectedTimeTag.innerHTML == "30 min") timeString="30";
+    else if(selectedTimeTag.innerHTML == "45 min") timeString="45";
+    else if(selectedTimeTag.innerHTML == "1 h") timeString="60";
+    else if(selectedTimeTag.innerHTML == "1 h i 30 min") timeString="90";
+    else if(selectedTimeTag.innerHTML == "2 h") timeString="120";
+    else if(selectedTimeTag.innerHTML == "3 h") timeString="180";
+    else timeString="210";
+
+    return timeString;
+}
+
 //Dodajmo event listener na Start Search Button
+//Dvije opcije:
+//Pretraga samo po tagovima ili i po vremenu i po tagovima
 let startSearchButton = document.getElementById("btn-start-search");
 startSearchButton.addEventListener("click", handleStartSearchButtonClick);
 
@@ -154,46 +214,96 @@ function handleStartSearchButtonClick(event){
         recipesTable.removeChild(recipesTable.firstChild);
     }
 
-    xhttp=new XMLHttpRequest();
-    
-    xhttp.onreadystatechange = function() {
+    myInput.value=""; //Kada tražimo po tagovima, neka je search bar prazan
+
+    //1. slučaj - nije selectan time tag
+    if(selectedTimeTag === null){
+        xhttp=new XMLHttpRequest();
         
-        if (this.readyState == 4 && this.status == 200){
-            var obj=JSON.parse(this.responseText);
-            console.log(obj);
+        xhttp.onreadystatechange = function() {
+            
+            if (this.readyState == 4 && this.status == 200){
+                var obj=JSON.parse(this.responseText);
+                console.log(obj);
 
-            for(let i=0;i<obj.length;i++){
-                let receptTemplate=document.querySelector("#RecipesTemplate");
-                let recept=document.importNode(receptTemplate.content,true);
-                recept.querySelector("a").innerHTML=obj[i].naziv;
-                document.querySelector("#RecipesTable").appendChild(recept);
+                for(let i=0;i<obj.length;i++){
+                    let receptTemplate=document.querySelector("#RecipesTemplate");
+                    let recept=document.importNode(receptTemplate.content,true);
+                    recept.querySelector("a").innerHTML=obj[i].naziv;
+                    document.querySelector("#RecipesTable").appendChild(recept);
+                }
+                if(obj.length == 0){
+                    let receptTemplate=document.querySelector("#RecipesTemplate");
+                    let recept=document.importNode(receptTemplate.content,true);
+                    recept.querySelector("a").innerHTML="Nema recepata koji odgovaraju upitu!";
+                    document.querySelector("#RecipesTable").appendChild(recept);
+                }
             }
-            if(obj.length == 0){
-                let receptTemplate=document.querySelector("#RecipesTemplate");
-                let recept=document.importNode(receptTemplate.content,true);
-                recept.querySelector("a").innerHTML="Nema recepata koji odgovaraju upitu!";
-                document.querySelector("#RecipesTable").appendChild(recept);
-            }
-        }
-    };
+        };
 
-    var postRequest="";
-    for(let i=0; i<5; i++){
-        if(i<selectedTags.length){
-        postRequest+="tag"+i+"="+selectedTags[i].innerHTML;
+        var postRequest="";
+        for(let i=0; i<5; i++){
+            if(i<selectedTags.length){
+            postRequest+="tag"+i+"="+selectedTags[i].innerHTML;
+            }
+            else{
+            postRequest+="tag"+i+"=empty";
+            }
+            if(i!=4){
+                postRequest+="&";
+            }
+            console.log(postRequest);
         }
-        else{
-        postRequest+="tag"+i+"=empty";
-        }
-        if(i!=4){
-            postRequest+="&";
-        }
-        console.log(postRequest);
+        
+        xhttp.open("POST","/searchByTags",true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(postRequest);
+
+        return false;
     }
-    
-     xhttp.open("POST","/searchByTags",true);
-     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-     xhttp.send(postRequest);
+    //2. slučaj - odabrano je neko vrijeme pripreme
+    else{
+        xhttp=new XMLHttpRequest();
+        
+        xhttp.onreadystatechange = function() {
+            
+            if (this.readyState == 4 && this.status == 200){
+                var obj=JSON.parse(this.responseText);
+                console.log(obj);
 
-    return false;
+                for(let i=0;i<obj.length;i++){
+                    let receptTemplate=document.querySelector("#RecipesTemplate");
+                    let recept=document.importNode(receptTemplate.content,true);
+                    recept.querySelector("a").innerHTML=obj[i].naziv;
+                    document.querySelector("#RecipesTable").appendChild(recept);
+                }
+                if(obj.length == 0){
+                    let receptTemplate=document.querySelector("#RecipesTemplate");
+                    let recept=document.importNode(receptTemplate.content,true);
+                    recept.querySelector("a").innerHTML="Nema recepata koji odgovaraju upitu!";
+                    document.querySelector("#RecipesTable").appendChild(recept);
+                }
+            }
+        };
+
+        var postRequest="timeTag=" + hoursToMinutes() + "&";
+        for(let i=0; i<5; i++){
+            if(i<selectedTags.length){
+            postRequest+="tag"+i+"="+selectedTags[i].innerHTML;
+            }
+            else{
+            postRequest+="tag"+i+"=empty";
+            }
+            if(i!=4){
+                postRequest+="&";
+            }
+            console.log(postRequest);
+        }
+        
+        xhttp.open("POST","/searchByTagsAndTime",true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(postRequest);
+
+        return false;
+    }
 }

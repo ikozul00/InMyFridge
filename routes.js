@@ -45,5 +45,6 @@ router.post('/removeRecipe',controllersProfile.removeRecipe);
 router.post('/searchByAuthor',controllersRecipeSearch.searchByAuthor);
 router.post('/searchByRecipe',controllersRecipeSearch.searchByRecipe);
 router.post('/searchByTags',controllersRecipeSearch.searchByTags);
+router.post('/searchByTagsAndTime',controllersRecipeSearch.searchByTagsAndTime);
 
 module.exports = router;
