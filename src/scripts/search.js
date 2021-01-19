@@ -11,7 +11,7 @@ var selectedTimeTag = null; //Odabrani vremenski tag
 var ingredientDivs = document.querySelectorAll(".ingredientDiv");
 var selectedIngredients = 0;
 var plusIcon = document.getElementById("plus-icon");
-//var deleteIcons = document.querySelectorAll(".fa-remove");
+var deleteIcons = document.querySelectorAll(".fa-remove");
 
 //Dodajmo event listener na sve tagove
 for(let tag of tags){
@@ -23,36 +23,46 @@ for(let tag of timeTags){
     tag.addEventListener("click", handleTimeTagClick);
 }
 //Dodajmo event listener na svaki delete icon
-/*for(let icon of deleteIcons){
+for(let icon of deleteIcons){
     icon.addEventListener("click", handleDeleteIconClick);
 }
 function handleDeleteIconClick(event){
     let currentIngredient = event.currentTarget.parentNode;
     selectedIngredients--;
-
-    if(currentIngredient == ingredientDivs[2]){
-        currentIngredient.firstChild.textContent="";
-        currentIngredient.style.visibility="hidden";
-    }
-    else if(currentIngredient == ingredientDivs[1]){
-        ingredientDivs[1].firstChild.textContent = ingredientDivs[2].firstChild.textContent;
-        ingredientDivs[2].firstChild.textContent=""
-    }
-    
+    currentIngredient.firstChild.innerHTML="";
+    currentIngredient.style.visibility="hidden";
+    console.log(selectedIngredients);
+    return false;
 }
-*/
+
 //Dodajmo event listener na plusIcon
 plusIcon.addEventListener("click", handlePlusIconClick);
 function handlePlusIconClick(){
 
+    let freeIngredientDiv;
     if(selectedIngredients == 3){
         alert("Možete odabrati najviše tri sastojka!");
     }
     else{
-        ingredientDivs[selectedIngredients].firstChild.textContent=myInput.value;
+       /* ingredientDivs[selectedIngredients].firstChild.textContent=myInput.value;
         myInput.value="";
         ingredientDivs[selectedIngredients].style.visibility="visible";
-        selectedIngredients++;
+        selectedIngredients++;*/
+        if(ingredientDivs[0].firstChild.textContent=="") {
+            console.log(0);
+            freeIngredientDiv=ingredientDivs[0];}
+        else if(ingredientDivs[1].firstChild.textContent=="") {
+            console.log(1);
+            freeIngredientDiv=ingredientDivs[1];}
+        else {
+            console.log(2);
+            freeIngredientDiv=ingredientDivs[2];}
+
+        freeIngredientDiv.firstChild.textContent=myInput.value;
+        myInput.value="";
+        freeIngredientDiv.style.visibility="visible";
+        selectedIngredients++
+console.log(selectedIngredients);
     }
     return false;
 }
@@ -74,7 +84,7 @@ function handleSearchChoiceClick(e){
         selectedIngredients=0;
         for(let i=0; i<ingredientDivs.length; i++){
             ingredientDivs[i].firstChild.textContent="";
-            ingredientDivs[selectedIngredients].style.visibility="hidden";
+            ingredientDivs[i].style.visibility="hidden";
         }
     }
 }
@@ -206,7 +216,7 @@ if(selectedSearchChoice == document.getElementById("option-ingredients")){
 
     var postRequest = ""; 
     for(let i=0; i<3; i++){
-        if(i<selectedIngredients && ingredientDivs[i].firstChild.textContent!=""){ //ako je odabran sastojak
+        if(ingredientDivs[i].firstChild.textContent!=""){ //ako je odabran sastojak
         postRequest+="tag"+i+"="+ingredientDivs[i].firstChild.textContent;
         }
         else{               
