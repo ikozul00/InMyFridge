@@ -21,6 +21,15 @@ header {
   text-align: center;
 }
 
+.clickable-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.clickable-icon:hover {
+  transform: scale(1.2);
+}
+
 hr {
   margin: 0px 200px;
   border: 1px solid #afafafc7;
